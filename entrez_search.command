@@ -26,6 +26,7 @@ for gene in ${gene_list[@]}; do
         description=$(xmlstarlet sel -t -m '//Description' -v . -n < $tmp_file)
         summary=$(xmlstarlet sel -t -m '//Summary' -v . -n < $tmp_file)
         echo -e "Gene name:\n$gene_name\nDescription:\n$description\nSummary:\n$summary\n" >> $HOME/Desktop/$file_name
+	rm $tmp_file
     fi
 done
 zenity --info --text="Check $HOME/Desktop/"$file_name" for output" --no-wrap
