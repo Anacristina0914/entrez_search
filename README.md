@@ -14,7 +14,5 @@ containing gene name, gene description, and a short summary of gene function.
 Pop up windown will ask to select a file. The file must contain 1 gene per line. Output will be saved in the Desktop as a summary \
 containing gene name, gene description, and a short summary of gene function.
 ```
-wget https://raw.githubusercontent.com/Anacristina0914/entrez_search/main/entrez_search.command \
-chmod +x entrez_searchfile.command \
 ./entrez_searchfile.command \
 ```
