@@ -15,9 +15,7 @@ if [[ -z "$(which xmlstarlet)" ]]; then
 fi
 
 gene_list=$(zenity --entry --text="Input a list of space separated genes:")
-#read -a gene_list -p "Provide a gene list: "
 file_name=$(echo gene_summary_$(date '+%b%d')_$RANDOM.txt)
-#touch $file_name
 for gene in ${gene_list[@]}; do
     if [[ -n "$gene" ]]; then
         tmp_file=$(echo $RANDOM.xml)
