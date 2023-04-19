@@ -1,3 +1,13 @@
+# Requirements
+- MacOS/Linux
+  - Sudo access
+  - Git
+- MacOS
+  - Homebrew
+### Install Homebrew
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 # Install and run entrez_search
 Clone the whole repository
 ```
