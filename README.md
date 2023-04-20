@@ -43,3 +43,5 @@ containing gene name, gene description, and a short summary of gene function.
 ```
 ./entrez_searchfile.command 
 ```
+
+* Alternatively, the user can double click the file to launch it. 
