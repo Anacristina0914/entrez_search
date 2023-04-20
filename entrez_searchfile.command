@@ -17,7 +17,7 @@ fi
 gene_list=$(zenity --file-selection)
 file_name=$(echo gene_summary_$(date '+%b%d')_$RANDOM.txt)
 found=0
-for gene in $(cat $gene_list); do
+for gene in $(cat "$gene_list"); do
     if [[ -n "$gene" ]]; then
         tmp_file=$(echo $RANDOM.xml)
         esearch -db gene -query "$gene [gene] AND Mus Musculus [ORGN]" | esummary > $tmp_file
@@ -28,7 +28,7 @@ for gene in $(cat $gene_list); do
           summary=$(xmlstarlet sel -t -m '//Summary' -v . -n < $tmp_file)
           echo -e "query: $gene\nGene name:\n$gene_name\nDescription:\n$description\nSummary:\n$summary\n" >> $HOME/Desktop/$file_name
         fi
-	     rm $tmp_file 
+	      rm $tmp_file 
     fi
 done
 
@@ -38,3 +38,4 @@ if [[ -f $HOME/Desktop/$file_name ]]
   else
     zenity --info --text="Gene search had no results, check gene names and try again"
 fi
+exit
