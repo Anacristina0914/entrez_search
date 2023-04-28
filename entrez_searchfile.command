@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
-if [[ -z "$(which esearch)" ]]; then
-    sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
-    export PATH=${HOME}/edirect:${PATH}
-fi
+#if [[ -z "$(which esearch)" ]]; then
+#    sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
+#    export PATH=${HOME}/edirect:${PATH}
+#fi
 
-if [[ -z "$(which zenity)" ]]; then
-    brew install zenity || sudo apt-get update && sudo apt-get install zenity
-fi
+#if [[ -z "$(which zenity)" ]]; then
+#    brew install zenity 
+#fi
 
-if [[ -z "$(which xmlstarlet)" ]]; then
-    brew install xmlstarlet || sudo apt-get update && sudo apt-get install xmlstarlet
-
-fi
+#if [[ -z "$(which xmlstarlet)" ]]; then
+#    brew install xmlstarlet # Linux distributions have it by default
+#fi
 
 gene_list=$(zenity --file-selection)
 file_name=$(echo gene_summary_$(date '+%b%d')_$RANDOM.txt)
