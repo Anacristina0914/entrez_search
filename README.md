@@ -1,13 +1,43 @@
 # Requirements
 - MacOS/Linux
-  - Sudo access
   - Git
+  - eutils
+  - zenity
+  - xmlstarlet
 - MacOS
   - Homebrew
 ### Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+#### Homebrew without root priviledges
+```
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+```
+Export folder to $PATH
+```
+export PATH=$PATH:/homebrew/folder/
+```
+### Install eutils (MacOS/Linux)
+```
+sh -c "$(curl -fsSL https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
+```
+export to $PATH
+```
+export PATH=${HOME}/edirect:${PATH}
+```
+### install zenity
+```
+brew install zenity 
+```
+Zenity is installed by default zenity in linux ubuntu. 
+
+### Install xmlstarlet
+```
+brew install xmlstarlet
+```
+XMLStarlet is installed by default on CentOS, Fedora and many other Linux distributions. 
+
 # Install and run entrez_search
 Clone the whole repository
 ```
