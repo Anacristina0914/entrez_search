@@ -14,9 +14,9 @@
 ```
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 ```
-Export folder to $PATH
+Export folder to $PATH, note /homebrew/folder/bin must be replaced by the path to the homebrew bin in your system. e.g. cd homebrew/bin && pwd will output the folder where bin is located in your system.
 ```
-export PATH=$PATH:/homebrew/folder/
+export PATH=$PATH:/homebrew/folder/bin/
 ```
 ### Install eutils (MacOS/Linux)
 ```
