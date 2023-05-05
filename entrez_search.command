@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gene_list=$(zenity --entry --text="Input a list of space separated genes:")
+gene_list=$(zenity --entry --title="Gene list" --text="Input a list of space separated genes:")
 file_name=$(echo gene_summary_$(date '+%b%d')_$RANDOM.txt)
 found=0
 
@@ -25,7 +25,8 @@ done
 
 if [[ -f $HOME/entrez_found/$file_name ]]
   then
-    zenity --info --text="$found genes found. Check $HOME/entrez_found/"$file_name" for output" --no-wrap
+    total_genes=$(echo $gene_list | wc -w)
+    zenity --info --text="$found out of $total_genes genes found. Check $HOME/entrez_found/"$file_name" for output" --no-wrap
   else
     zenity --info --text="Gene search had no results, check gene names and try again"
 fi
