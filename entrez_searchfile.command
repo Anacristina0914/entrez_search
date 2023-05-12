@@ -10,18 +10,22 @@ if [[ ! -d $HOME/entrez_found ]]; then
 fi
 
 total_genes=$(cat $gene_list |wc -l)
+not_found=$(mktemp)
 
 (for gene in $(cat "$gene_list"); do
     if [[ -n "$gene" ]]; then
 	let "proces_genes+=1"
-	echo "$proces_genes/$total_genes*100 | bc -l"
-        tmp_file=$(echo $RANDOM.xml)
+	
+	echo "$proces_genes/$total_genes*100" | bc -l
+        tmp_file=$(mktemp --suffix .xml)
         esearch -db gene -query "$gene [gene] AND $org [ORGN]" | esummary > $tmp_file
         if [[ -s $tmp_file ]]; then
           gene_name=$(xmlstarlet sel -t -m '//Name' -v . -n < $tmp_file)
           description=$(xmlstarlet sel -t -m '//Description' -v . -n < $tmp_file)
           summary=$(xmlstarlet sel -t -m '//Summary' -v . -n < $tmp_file)
           echo -e "query: $gene\nGene name:\n$gene_name\nDescription:\n$description\nSummary:\n$summary\n" >> $HOME/entrez_found/$file_name
+        else
+          echo $gene >> $not_found
         fi
 	      rm $tmp_file 
     fi
@@ -35,6 +39,7 @@ fi
 echo $total_genes
 if [[ -f $HOME/entrez_found/$file_name ]]
   then
+  echo 'Genes not found:' >> $HOME/entrez_found/$file_name && cat $not_found >> $HOME/entrez_found/$file_name && rm $not_found
 	zenity --info --text="$(grep -c query $HOME/entrez_found/"$file_name") out of $total_genes genes found. Check $HOME/entrez_found/"$file_name" for output" --no-wrap
   else
 	zenity --info --text="Gene search had no results, check gene names and try again"
