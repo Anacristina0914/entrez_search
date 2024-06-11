@@ -67,6 +67,20 @@ containing gene name, gene description, and a short summary of gene function.
 ```
 ./entrez_search.command 
 ```
+Alternatively, the directory path can be exported to PATH, so the executables can be available anywhere in the system:
+```
+export PATH=/path/to/entrez_search:${PATH}
+```
+** Note this will only change the path for the current terminal session. To make this available for all sessions the ~/.bashrc file must be modified.
+If the second option is used, both tools can be called from anywhere in the system as:
+```
+entrez_search.command
+```
+or 
+```
+entrez_searchfile.command
+```
+
 ## Search using file
 Pop up windown will ask to select a file. A second window will ask to specify an organism. The file must contain 1 gene per line. Output will be saved in $HOME/entrez_found directory as a summary \
 containing gene name, gene description, and a short summary of gene function. The sample file `genes.txt` is provided in this repository.
