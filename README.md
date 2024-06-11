@@ -43,21 +43,21 @@ Clone the whole repository
 ```
 git clone git@github.com:Anacristina0914/entrez_search.git
 ```
-Copy individual files
+Or copy individual files using wget:
 ```
 wget https://raw.githubusercontent.com/Anacristina0914/entrez_search/main/entrez_search.command
 ```
 ```
 wget https://raw.githubusercontent.com/Anacristina0914/entrez_search/main/entrez_searchfile.command
 ```
-or
+or copy individual files using curl:
 ```
 curl -O https://raw.githubusercontent.com/Anacristina0914/entrez_search/main/entrez_search.command
 ```
 ```
 curl -O https://raw.githubusercontent.com/Anacristina0914/entrez_search/main/entrez_searchfile.command
 ```
-Make files executable
+cd into entrez_search folder and make files executable:
 ```
 chmod +x entrez_search*.command
 ```
