@@ -69,7 +69,7 @@ containing gene name, gene description, and a short summary of gene function.
 ```
 ## Search using file
 Pop up windown will ask to select a file. A second window will ask to specify an organism. The file must contain 1 gene per line. Output will be saved in $HOME/entrez_found directory as a summary \
-containing gene name, gene description, and a short summary of gene function.
+containing gene name, gene description, and a short summary of gene function. The sample file `genes.txt` is provided in this repository.
 ```
 ./entrez_searchfile.command 
 ```
